@@ -29,7 +29,7 @@ public class AlgebraProject {
 
         System.out.println("Okay, " + name + ", how many questions do you want on your test?");
         
-        int numQuestions = input.nextInt();
+        double numQuestions = input.nextInt();
         
         
         //Integer.MAX_VALUE;
@@ -42,7 +42,7 @@ public class AlgebraProject {
         
         int num2 = 0; 
         
-        int numRight = 0; 
+        double numRight = 0; 
         
         int answer = 0; 
         
@@ -156,7 +156,12 @@ public class AlgebraProject {
         
         System.out.println("The test is now finished. \n");
         
-        percentRight = (numRight / numQuestions) * 100;
+        percentRight = ((numRight / numQuestions) * 100) * 1000;
+        
+        percentRight =  (int) percentRight;
+        
+        percentRight =  percentRight / 1000;
+        
         
            String LetterGrade = "";
     
