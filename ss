@@ -1,4 +1,25 @@
-     Scanner input = new Scanner(System.in);
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package algebraproject;
+
+/**
+ *
+ * @author Cesar Rodriguez
+ */
+import java.util.Scanner;
+public class AlgebraProject {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) 
+    {
+        // TODO code application logic here
+        
+        Scanner input = new Scanner(System.in);
         
         System.out.println("Welcome to your algebra test!");
         
@@ -32,12 +53,15 @@
         char operator;
         
         boolean legit; 
+        
+        int num3;
 
      
         for (int Qcounter = 1; Qcounter <= numQuestions; Qcounter++) //Number of Questions
         {
-
-            while (answer == (int)answer) //Loops Until Question is made
+            
+            legit = false; 
+            while (legit == false) //Loops Until Question is made
             {
             
                 //Creates Question
@@ -47,24 +71,68 @@
                     {
                         for (num2 = 10; num2 < 99; num2++) 
                         {
-                            if ( ( (num1 - num2) / coefficient) % coefficient == 0)
+                            
+                            
+                            if (num1 < 0)
                             {
-                                answer = ((num1 - num2) / coefficient);
+                                num3 = num1 + num2;    
+                                if ( ( (num1 + num2) / coefficient) % num3 == 0)
+                                {
+                                    legit = true;
+                                    answer = ((num1 + num2) / coefficient);
                                 
-                                
-                                System.out.println("Question #" + Qcounter + "         " + coefficient + "X +" + num1 + " = " + num2);
+                                    if (num1 < 0)
+                                        {
+                                  
+                                            System.out.println("Question #" + Qcounter + "         " + coefficient + "X" + num1 + " = " + num2);
+      
+                                        }
+                                    else
+                                        {
+                                            operator = '+';
+                                            System.out.println("Question #" + Qcounter + "         " + coefficient + "X" + operator + num1 + " = " + num2);
+                        
+                                        }
 
-                                
+                                    
+                                }
+                            
                             }
                             
+                            else if (num1 > 0)
+                            {
+                                num3 = num1 - num2;    
+                                if ( ( (num1 - num2) / coefficient) % num3 == 0)
+                                {
+                                    legit = true;
+                                    answer = ((num1 - num2) / coefficient);
+                                
+                                    if (num1 < 0)
+                                        {
+                                  
+                                            System.out.println("Question #" + Qcounter + "         " + coefficient + "X" + num1 + " = " + num2);
+      
+                                        }
+                                    else
+                                        {
+                                            operator = '+';
+                                            System.out.println("Question #" + Qcounter + "         " + coefficient + "X" + operator + num1 + " = " + num2);
+                        
+                                        }
+
+                                    
+                                }
                             
+                            }
+                                
+                         
                         }
-                    
+                      
                     }
-               
+                 
                 }
                
-                break;
+               break;
  
             }
        
@@ -86,7 +154,7 @@
             
         }
         
-        System.out.println("The test is now finished.");
+        System.out.println("The test is now finished. \n");
         
         percentRight = (numRight / numQuestions) * 100;
         
@@ -167,3 +235,7 @@
         
         
         
+        
+    }
+    
+}
